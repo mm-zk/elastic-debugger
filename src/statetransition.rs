@@ -1,4 +1,5 @@
 use std::fmt::Display;
+use std::path::Path;
 
 use alloy::primitives::{Address, U256};
 use alloy::primitives::{FixedBytes, B256};
@@ -253,12 +254,17 @@ impl StateTransition {
     pub async fn get_priority_transactions(
         &self,
         sequencer: &Sequencer,
+        cache_dir: &Path,
     ) -> eyre::Result<Vec<PriorityTransaction>> {
-        fetch_all_priority_transactions(sequencer, self.hyperchain).await
+        fetch_all_priority_transactions(sequencer, self.hyperchain, cache_dir).await
     }
 
-    pub async fn verify_priority_root_hash(&self, sequencer: &Sequencer) -> eyre::Result<()> {
-        let txs = self.get_priority_transactions(sequencer).await?;
+    pub async fn verify_priority_root_hash(
+        &self,
+        sequencer: &Sequencer,
+        cache_dir: &Path,
+    ) -> eyre::Result<()> {
+        let txs = self.get_priority_transactions(sequencer, cache_dir).await?;
         if compute_merkle_tree(&txs) != self.priority_tree_root {
             eyre::bail!(
                 "Priority tree root hash invalid: {} vs {}",

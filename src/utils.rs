@@ -12,20 +12,23 @@ pub async fn get_all_events(
     address: Address,
     signature: B256,
     block_limit: u64,
+    start_from_block: Option<u64>,
 ) -> eyre::Result<Vec<Log>> {
     let provider = sequencer.get_provider();
     let mut current_block = provider.get_block_number().await?;
     let mut result = vec![];
     let mut blocks_per_call: u64 = 500;
 
-    let mut remaining_blocks = block_limit;
+    let min_block = match start_from_block {
+        Some(from) => from,
+        None => current_block.saturating_sub(block_limit),
+    };
 
-    while current_block > 0 && remaining_blocks > 0 {
-        let chunk = blocks_per_call.min(remaining_blocks);
-        let prev_limit = current_block.saturating_sub(chunk);
+    while current_block >= min_block && current_block > 0 {
+        let from_block = current_block.saturating_sub(blocks_per_call).max(min_block);
 
         let filter = Filter::new()
-            .from_block(prev_limit + 1)
+            .from_block(from_block)
             .to_block(current_block)
             .event_signature(signature)
             .address(address);
@@ -33,8 +36,10 @@ pub async fn get_all_events(
         match sequencer.get_provider().get_logs(&filter).await {
             Ok(mut logs) => {
                 result.append(&mut logs);
-                remaining_blocks = remaining_blocks.saturating_sub(chunk);
-                current_block = prev_limit;
+                if from_block == 0 {
+                    break;
+                }
+                current_block = from_block - 1;
             }
             Err(e) => {
                 let err_str = e.to_string();
