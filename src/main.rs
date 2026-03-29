@@ -433,7 +433,7 @@ async fn main() -> eyre::Result<()> {
                 print!("Chain {} on L1: {}", chain, &st);
                 diagnostics.state_transition = Some(st.to_report());
                 if args.network.as_ref().unwrap_or(&Network::Local) == &Network::Local {
-                    st.verify_priority_root_hash(&l1_sequencer).await?;
+                    st.verify_priority_root_hash(&l1_sequencer, &args.cache_dir).await?;
                     println!("  Priority tree hash: {}", "VALID".green());
                     diagnostics.priority_tree_verified = Some(true);
                 } else {
@@ -475,7 +475,7 @@ async fn main() -> eyre::Result<()> {
         println!("Chain {}", chain);
 
         if let Some(st) = state_transitions.get(chain) {
-            match st.get_priority_transactions(&l1_sequencer).await {
+            match st.get_priority_transactions(&l1_sequencer, &args.cache_dir).await {
                 Ok(mut txs) => {
                     txs.sort_by_key(|x| x.index);
                     for tx in &txs {
