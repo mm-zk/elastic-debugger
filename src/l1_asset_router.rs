@@ -37,6 +37,7 @@ sol! {
     #[sol(rpc)]
     contract ERC20 {
         function name() external view returns(string);
+        function decimals() external view returns(uint8);
 
     }
 }
@@ -67,7 +68,11 @@ struct CachedRegisteredAsset {
 #[serde(tag = "kind", rename_all = "snake_case")]
 enum CachedAssetHandler {
     Bridgehub,
-    NativeTokenVault { address: String, token_name: String },
+    NativeTokenVault {
+        address: String,
+        token_name: String,
+        decimals: u8,
+    },
     Other { address: String },
 }
 
@@ -75,6 +80,7 @@ enum CachedAssetHandler {
 pub struct NativeTokenVaultAsset {
     pub address: Address,
     pub token_name: String,
+    pub decimals: u8,
 }
 
 #[derive(Debug)]
@@ -123,10 +129,18 @@ impl RegisteredAsset {
                         let erc20_contract = ERC20::new(token_address, sequencer.get_provider());
                         erc20_contract.name().call().await?._0
                     };
+                let decimals =
+                    if token_address == address!("0000000000000000000000000000000000000001") {
+                        18
+                    } else {
+                        let erc20_contract = ERC20::new(token_address, sequencer.get_provider());
+                        erc20_contract.decimals().call().await?._0
+                    };
 
                 AssetHandler::NativeTokenVault(NativeTokenVaultAsset {
                     address: token_address,
                     token_name,
+                    decimals,
                 })
             }
 
@@ -164,6 +178,7 @@ impl CachedRegisteredAsset {
             AssetHandler::NativeTokenVault(native_token) => CachedAssetHandler::NativeTokenVault {
                 address: format!("{:#x}", native_token.address),
                 token_name: native_token.token_name.clone(),
+                decimals: native_token.decimals,
             },
             AssetHandler::Other(address) => CachedAssetHandler::Other {
                 address: format!("{:#x}", address),
@@ -182,9 +197,11 @@ impl CachedRegisteredAsset {
             CachedAssetHandler::NativeTokenVault {
                 address,
                 token_name,
+                decimals,
             } => AssetHandler::NativeTokenVault(NativeTokenVaultAsset {
                 address: address.parse()?,
                 token_name,
+                decimals,
             }),
             CachedAssetHandler::Other { address } => AssetHandler::Other(address.parse()?),
         };
@@ -215,7 +232,7 @@ impl Display for L1AssetRouter {
 }
 
 impl L1AssetRouter {
-    const CACHE_VERSION: u32 = 1;
+    const CACHE_VERSION: u32 = 2;
 
     async fn call_with_retry<F, Fut, T>(f: F) -> eyre::Result<T>
     where
@@ -546,6 +563,7 @@ mod tests {
                 handler: AssetHandler::NativeTokenVault(NativeTokenVaultAsset {
                     address: token,
                     token_name: "ETH".to_string(),
+                    decimals: 18,
                 }),
             },
         );
@@ -578,6 +596,7 @@ mod tests {
             AssetHandler::NativeTokenVault(asset) => {
                 assert_eq!(asset.address, token);
                 assert_eq!(asset.token_name, "ETH");
+                assert_eq!(asset.decimals, 18);
             }
             _ => panic!("expected native token vault asset"),
         }

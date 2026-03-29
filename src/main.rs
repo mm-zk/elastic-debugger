@@ -33,27 +33,50 @@ sol! {
     }
 }
 
-fn format_wei_amount(wei: &U256) -> String {
-    let wei_string = wei.to_string();
-    let len = wei_string.len();
+fn format_token_amount(amount: &U256, decimals: u8) -> String {
+    let amount_string = amount.to_string();
+    let decimals = usize::from(decimals);
+    let len = amount_string.len();
 
-    if len > 18 {
-        // Insert a decimal 18 places from the end
-        format!("{}.{}", &wei_string[..len - 18], &wei_string[len - 18..])
+    if decimals == 0 {
+        return amount_string;
+    }
+
+    if len > decimals {
+        format!(
+            "{}.{}",
+            &amount_string[..len - decimals],
+            &amount_string[len - decimals..]
+        )
     } else {
-        // If the string is shorter than 18 characters, pad with zeros
         format!(
             "0.{}",
-            wei_string
+            amount_string
                 .chars()
                 .rev()
-                .chain("000000000000000000".chars())
-                .take(18)
+                .chain(std::iter::repeat('0'))
+                .take(decimals)
                 .collect::<String>()
                 .chars()
                 .rev()
                 .collect::<String>()
         )
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::format_token_amount;
+    use alloy::primitives::U256;
+
+    #[test]
+    fn formats_token_amount_with_token_decimals() {
+        assert_eq!(format_token_amount(&U256::from(44_330_u64), 6), "0.044330");
+        assert_eq!(format_token_amount(&U256::from(1_234_u64), 0), "1234");
+        assert_eq!(
+            format_token_amount(&U256::from(383_949_955_037_695_520_563_u128), 18),
+            "383.949955037695520563"
+        );
     }
 }
 
@@ -158,6 +181,7 @@ struct ChainBalanceReport {
 struct TokenBalanceReport {
     token: String,
     raw_wei: String,
+    decimals: u8,
     formatted: String,
 }
 
@@ -370,16 +394,17 @@ async fn main() -> eyre::Result<()> {
             let mut token_reports = Vec::new();
             let mut tokens: Vec<_> = balance.iter().collect();
             tokens.sort_by(|a, b| a.0.cmp(b.0));
-            for (token, amount) in tokens {
+            for (token, balance) in tokens {
                 println!(
                     "      {:<20} : {:>28}",
                     token.bold(),
-                    format_wei_amount(amount)
+                    format_token_amount(&balance.amount, balance.decimals)
                 );
                 token_reports.push(TokenBalanceReport {
                     token: token.clone(),
-                    raw_wei: amount.to_string(),
-                    formatted: format_wei_amount(amount),
+                    raw_wei: balance.amount.to_string(),
+                    decimals: balance.decimals,
+                    formatted: format_token_amount(&balance.amount, balance.decimals),
                 });
             }
             balance_reports.push(ChainBalanceReport {

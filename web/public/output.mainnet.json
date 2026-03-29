@@ -88,7 +88,8 @@
           "handler": "native_token_vault",
           "token_address": "0x62d0a8458ed7719fdaf978fe5929c6d342b0bfce",
           "token_name": "Beam",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 18
         },
         {
           "asset_id": "0x487d70c3c1f222134d1e8743a90e5cbb6c006ad0960a00b97e10ac40e3124adc",
@@ -96,7 +97,8 @@
           "handler": "native_token_vault",
           "token_address": "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b",
           "token_name": "CRO",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 8
         },
         {
           "asset_id": "0x05e1c3ae4b9732444ae25217ac7666e46fa365fee1768de00c9fcb65532b7609",
@@ -104,7 +106,8 @@
           "handler": "native_token_vault",
           "token_address": "0x0000000000000000000000000000000000000001",
           "token_name": "ETH",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 18
         },
         {
           "asset_id": "0xdde1b8f84d54bbaba65c196655baa8458cbb20c0d62f6b8ae4ff5e801456e6bd",
@@ -112,7 +115,8 @@
           "handler": "native_token_vault",
           "token_address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
           "token_name": "Tether USD",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 6
         },
         {
           "asset_id": "0x79272c08dbfbb367e07f7607be00657ae4a9c15ba0b08b12aa00fb77a0a4aa83",
@@ -120,7 +124,8 @@
           "handler": "native_token_vault",
           "token_address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
           "token_name": "USD Coin",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 6
         },
         {
           "asset_id": "0x42da3783e03694dbfb1491ffc872529ecc3964e8231f87e0a04be359d1451e60",
@@ -128,7 +133,8 @@
           "handler": "native_token_vault",
           "token_address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
           "token_name": "Wrapped BTC",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 8
         },
         {
           "asset_id": "0xed62d1706f94877003bf1006b76b5739cad33164faff051a9cf7d90b0fba0603",
@@ -136,7 +142,8 @@
           "handler": "native_token_vault",
           "token_address": "0x25f8087ead173b73d6e8b84329989a8eea16cf73",
           "token_name": "Yield Guild Games Token",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 18
         }
       ]
     }
@@ -149,37 +156,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "383949955037695520563",
-          "formatted": "383.949955037695520563"
+          "formatted": "383.949955037695520563",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "44330",
-          "formatted": "0.000000000000044330"
+          "formatted": "0.044330",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -189,37 +203,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "18681819289006944029",
-          "formatted": "18.681819289006944029"
+          "formatted": "18.681819289006944029",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "33000005",
-          "formatted": "0.000000000033000005"
+          "formatted": "33.000005",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "57627080",
-          "formatted": "0.000000000057627080"
+          "formatted": "57.627080",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -229,37 +250,44 @@
         {
           "token": "Beam",
           "raw_wei": "51689739780035047575291",
-          "formatted": "51689.739780035047575291"
+          "formatted": "51689.739780035047575291",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "127377519211",
-          "formatted": "0.000000127377519211"
+          "formatted": "1273.77519211",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "50241241582556760591761",
-          "formatted": "50241.241582556760591761"
+          "formatted": "50241.241582556760591761",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "3004846114192",
-          "formatted": "0.000003004846114192"
+          "formatted": "3004846.114192",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "25260092159947",
-          "formatted": "0.000025260092159947"
+          "formatted": "25260092.159947",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "2580431046",
-          "formatted": "0.000000002580431046"
+          "formatted": "25.80431046",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -269,37 +297,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "113030981216339",
-          "formatted": "0.000113030981216339"
+          "formatted": "113030981.216339",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -309,37 +344,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "14092219785598248",
-          "formatted": "0.014092219785598248"
+          "formatted": "0.014092219785598248",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -349,37 +391,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "6576050047539130",
-          "formatted": "0.006576050047539130"
+          "formatted": "65760500.47539130",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "2788300485657859564144",
-          "formatted": "2788.300485657859564144"
+          "formatted": "2788.300485657859564144",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "2313493728502",
-          "formatted": "0.000002313493728502"
+          "formatted": "2313493.728502",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "704717510",
-          "formatted": "0.000000000704717510"
+          "formatted": "7.04717510",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -389,37 +438,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "1902329534353475756",
-          "formatted": "1.902329534353475756"
+          "formatted": "1.902329534353475756",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -429,37 +485,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "1000",
-          "formatted": "0.000000000000001000"
+          "formatted": "0.001000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -469,37 +532,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "15440041781273555298673",
-          "formatted": "15440.041781273555298673"
+          "formatted": "15440.041781273555298673",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "40833477",
-          "formatted": "0.000000000040833477"
+          "formatted": "40.833477",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "2247000000",
-          "formatted": "0.000000002247000000"
+          "formatted": "2247.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "49395490380303124821772427",
-          "formatted": "49395490.380303124821772427"
+          "formatted": "49395490.380303124821772427",
+          "decimals": 18
         }
       ]
     },
@@ -509,37 +579,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "5581766270288423587",
-          "formatted": "5.581766270288423587"
+          "formatted": "5.581766270288423587",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "19236340",
-          "formatted": "0.000000000019236340"
+          "formatted": "19.236340",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "111271988",
-          "formatted": "0.000000000111271988"
+          "formatted": "111.271988",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -549,37 +626,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "1000000",
-          "formatted": "0.000000000001000000"
+          "formatted": "1.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "1000000",
-          "formatted": "0.000000000001000000"
+          "formatted": "1.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "900",
-          "formatted": "0.000000000000000900"
+          "formatted": "0.00000900",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -589,37 +673,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -629,37 +720,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "197039300907405123",
-          "formatted": "0.197039300907405123"
+          "formatted": "0.197039300907405123",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -669,37 +767,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "400000000000000",
-          "formatted": "0.000400000000000000"
+          "formatted": "0.000400000000000000",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -709,37 +814,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "7180506162037322",
-          "formatted": "0.007180506162037322"
+          "formatted": "0.007180506162037322",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "2154124",
-          "formatted": "0.000000000002154124"
+          "formatted": "2.154124",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "8634814",
-          "formatted": "0.000000000008634814"
+          "formatted": "8.634814",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -749,37 +861,44 @@
         {
           "token": "Beam",
           "raw_wei": "1407661742826799680797109410",
-          "formatted": "1407661742.826799680797109410"
+          "formatted": "1407661742.826799680797109410",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "170516735966230367684",
-          "formatted": "170.516735966230367684"
+          "formatted": "170.516735966230367684",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "362246357080",
-          "formatted": "0.000000362246357080"
+          "formatted": "362246.357080",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "66556921",
-          "formatted": "0.000000000066556921"
+          "formatted": "0.66556921",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -789,37 +908,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "9562863341381419659",
-          "formatted": "9.562863341381419659"
+          "formatted": "9.562863341381419659",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "10000000",
-          "formatted": "0.000000000010000000"
+          "formatted": "10.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -829,37 +955,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "5542859503289314744",
-          "formatted": "5.542859503289314744"
+          "formatted": "5.542859503289314744",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -869,37 +1002,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "500846389594707751573",
-          "formatted": "500.846389594707751573"
+          "formatted": "500.846389594707751573",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "113688477538",
-          "formatted": "0.000000113688477538"
+          "formatted": "113688.477538",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "322745623565",
-          "formatted": "0.000000322745623565"
+          "formatted": "322745.623565",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "37590643",
-          "formatted": "0.000000000037590643"
+          "formatted": "0.37590643",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -909,37 +1049,44 @@
         {
           "token": "Beam",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "CRO",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Tether USD",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "USD Coin",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000",
+          "decimals": 6
         },
         {
           "token": "Wrapped BTC",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.00000000",
+          "decimals": 8
         },
         {
           "token": "Yield Guild Games Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     }

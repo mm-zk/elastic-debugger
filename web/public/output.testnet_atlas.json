@@ -79,7 +79,8 @@
           "handler": "native_token_vault",
           "token_address": "0x2a98b46fe31ba8be05ef1ce3d36e1f80db04190d",
           "token_name": "ADI Token",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 18
         },
         {
           "asset_id": "0x4c393da37d52ea1c06d3282d1bcbdb5b1e145535fd67e2485d882a5aaaec2987",
@@ -87,7 +88,8 @@
           "handler": "native_token_vault",
           "token_address": "0x779877a7b0d9e8603169ddbd7836e478b4624789",
           "token_name": "ChainLink Token",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 18
         },
         {
           "asset_id": "0x6337a96bd2cd359fa0bae3bbedfca736753213c95037ae158c5fa7c048ae2112",
@@ -95,7 +97,8 @@
           "handler": "native_token_vault",
           "token_address": "0x0000000000000000000000000000000000000001",
           "token_name": "ETH",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 18
         },
         {
           "asset_id": "0xe16bfe48d8a902d17de6ed0a6971426edc19b3fa34f15ee66f4982d6d4b95799",
@@ -103,7 +106,8 @@
           "handler": "native_token_vault",
           "token_address": "0x06c03f9319ebbd84065336240dcc243bda9d8896",
           "token_name": "Sophon",
-          "handler_address": null
+          "handler_address": null,
+          "token_decimals": 18
         }
       ]
     }
@@ -126,22 +130,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "65253241949000261",
-          "formatted": "0.065253241949000261"
+          "formatted": "0.065253241949000261",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -151,22 +159,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "6041502064449000166",
-          "formatted": "6.041502064449000166"
+          "formatted": "6.041502064449000166",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -176,22 +188,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "10803016167200842000000",
-          "formatted": "10803.016167200842000000"
+          "formatted": "10803.016167200842000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -201,22 +217,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "1000000000000000000",
-          "formatted": "1.000000000000000000"
+          "formatted": "1.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -226,22 +246,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -251,22 +275,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "10000000000000000000",
-          "formatted": "10.000000000000000000"
+          "formatted": "10.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -276,22 +304,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "222124107744000000",
-          "formatted": "0.222124107744000000"
+          "formatted": "0.222124107744000000",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -301,22 +333,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "5700000000000000000",
-          "formatted": "5.700000000000000000"
+          "formatted": "5.700000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "192453603052102067237",
-          "formatted": "192.453603052102067237"
+          "formatted": "192.453603052102067237",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "500000000000000000",
-          "formatted": "0.500000000000000000"
+          "formatted": "0.500000000000000000",
+          "decimals": 18
         }
       ]
     },
@@ -326,22 +362,26 @@
         {
           "token": "ADI Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ChainLink Token",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         },
         {
           "token": "ETH",
           "raw_wei": "2072000000000000000",
-          "formatted": "2.072000000000000000"
+          "formatted": "2.072000000000000000",
+          "decimals": 18
         },
         {
           "token": "Sophon",
           "raw_wei": "0",
-          "formatted": "0.000000000000000000"
+          "formatted": "0.000000000000000000",
+          "decimals": 18
         }
       ]
     }

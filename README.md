@@ -40,8 +40,9 @@ The emitted JSON captures the console output in a machine friendly form:
   for L2) and any `error` text.
 * `bridgehub` and `gateway_bridgehub` – summaries of each bridge hub including
   addresses, known chains, registered CTMs and asset router metadata.
-* `l1_balances` – token balances per chain as both raw wei strings and
-  human-readable values.
+* `l1_balances` – token balances per chain as raw on-chain integer strings,
+  token decimals, and human-readable values formatted with each token's
+  decimals.
 * `chains` – diagnostics for every discovered chain with:
   * `state_transition` – verifier, batch counters, hashes and queue metrics.
   * `priority_tree_verified` / `priority_tree_note` – validation status of the
