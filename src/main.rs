@@ -478,7 +478,17 @@ async fn main() -> eyre::Result<()> {
         match st {
             Ok(st) => {
                 print!("Chain {} on L1: {}", chain, &st);
-                diagnostics.state_transition = Some(st.to_report());
+                let last_batch_update_unix = match bridgehub
+                    .get_committed_batch_timestamp(*chain, st.total_batches_committed())
+                    .await
+                {
+                    Ok(timestamp) => timestamp,
+                    Err(err) => {
+                        println!("  Failed to fetch last batch update timestamp: {}", err);
+                        None
+                    }
+                };
+                diagnostics.state_transition = Some(st.to_report(last_batch_update_unix));
                 if args.network.as_ref().unwrap_or(&Network::Local) == &Network::Local {
                     st.verify_priority_root_hash(&l1_sequencer).await?;
                     println!("  Priority tree hash: {}", "VALID".green());

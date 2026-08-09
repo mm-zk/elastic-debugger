@@ -142,6 +142,16 @@ sol! {
     }
 }
 
+sol! {
+    #[sol(rpc)]
+    contract IValidatorTimelock {
+        function getCommittedBatchTimestamp(uint256 chainId, uint256 batchNumber)
+            external
+            view
+            returns (uint256);
+    }
+}
+
 // Information about a single chain that is connected to a bridgehub.
 // The chain_id is supposed to be a globally unique identifier.
 // Note, that this object might exist in 'passive' mode - if the chain has migrated to a different sync layer.
@@ -502,6 +512,36 @@ impl Bridgehub {
             .await?
             ._0;
         StateTransition::new(&self.provider, st_address).await
+    }
+
+    pub async fn get_committed_batch_timestamp(
+        &self,
+        chain_id: u64,
+        batch_number: U256,
+    ) -> eyre::Result<Option<u64>> {
+        if batch_number.is_zero() {
+            return Ok(None);
+        }
+
+        let details = self.get_chain_details(chain_id).await?;
+        if details.validator_timelock_address == Address::ZERO {
+            return Ok(None);
+        }
+
+        let timelock = IValidatorTimelock::new(details.validator_timelock_address, &self.provider);
+        let timestamp = timelock
+            .getCommittedBatchTimestamp(U256::from(chain_id), batch_number)
+            .call()
+            .await?
+            ._0;
+
+        if timestamp.is_zero() {
+            return Ok(None);
+        }
+
+        Ok(Some(u64::try_from(timestamp).map_err(|_| {
+            eyre::eyre!("Committed batch timestamp does not fit into u64")
+        })?))
     }
 
     pub async fn get_all_chains_balances(

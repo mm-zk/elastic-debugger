@@ -43,7 +43,9 @@ The emitted JSON captures the console output in a machine friendly form:
 * `l1_balances` – token balances per chain as both raw wei strings and
   human-readable values.
 * `chains` – diagnostics for every discovered chain with:
-  * `state_transition` – verifier, batch counters, hashes and queue metrics.
+  * `state_transition` – verifier, batch counters, hashes and queue metrics,
+    plus `last_batch_update_unix` when the validator timelock exposes the most
+    recent committed batch timestamp.
   * `priority_tree_verified` / `priority_tree_note` – validation status of the
     priority queue root hash.
   * `priority_transactions` – ordered list of priority transactions with

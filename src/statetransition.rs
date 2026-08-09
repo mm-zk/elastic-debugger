@@ -60,6 +60,8 @@ pub struct StateTransitionReport {
     pub total_batches_executed: String,
     pub total_batches_verified: String,
     pub total_batches_committed: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub last_batch_update_unix: Option<u64>,
     pub bootloader_hash: String,
     pub default_account_hash: String,
     pub protocol_version: (u32, u32, u32),
@@ -173,7 +175,11 @@ impl StateTransition {
         })
     }
 
-    pub fn to_report(&self) -> StateTransitionReport {
+    pub fn total_batches_committed(&self) -> U256 {
+        self.total_batches_committed
+    }
+
+    pub fn to_report(&self, last_batch_update_unix: Option<u64>) -> StateTransitionReport {
         StateTransitionReport {
             chain_id: self.chain_id.to_string(),
             hyperchain: format_address(self.hyperchain),
@@ -181,6 +187,7 @@ impl StateTransition {
             total_batches_executed: self.total_batches_executed.to_string(),
             total_batches_verified: self.total_batches_verified.to_string(),
             total_batches_committed: self.total_batches_committed.to_string(),
+            last_batch_update_unix,
             bootloader_hash: format_fixed_bytes(self.bootloader_hash),
             default_account_hash: format_fixed_bytes(self.default_account_hash),
             protocol_version: self.protocol_version,

@@ -15,6 +15,38 @@ const formatVersion = (ver) => {
   return `${a}.${b}.${c}`;
 };
 
+const formatRelativeToRefresh = (timestampUnix, refreshUnix) => {
+  if (!Number.isFinite(timestampUnix) || !Number.isFinite(refreshUnix)) return null;
+
+  const diffSeconds = Math.round(refreshUnix - timestampUnix);
+  if (Math.abs(diffSeconds) < 30) return 'at refresh';
+
+  const thresholds = [
+    ['day', 86_400],
+    ['hour', 3_600],
+    ['minute', 60],
+    ['second', 1]
+  ];
+
+  for (const [unit, seconds] of thresholds) {
+    if (Math.abs(diffSeconds) >= seconds) {
+      const value = Math.round(Math.abs(diffSeconds) / seconds);
+      const label = `${value} ${unit}${value === 1 ? '' : 's'}`;
+      return `${label} ${diffSeconds > 0 ? 'before' : 'after'} refresh`;
+    }
+  }
+  return null;
+};
+
+const formatTimestampTitle = (timestampUnix) => {
+  if (!Number.isFinite(timestampUnix)) return null;
+  return new Intl.DateTimeFormat('en', {
+    dateStyle: 'medium',
+    timeStyle: 'medium',
+    timeZoneName: 'short'
+  }).format(new Date(timestampUnix * 1000));
+};
+
 // Etherscan base URLs per ecosystem
 const ETHERSCAN_BASES = {
   mainnet: 'https://etherscan.io/address/',
@@ -389,6 +421,11 @@ export default function App() {
                   const st = c.state_transition;
                   const name = idToName.get(Number(c.chain_id));
                   const key = versionRanks.asKey(st?.protocol_version);
+                  const batchUpdatedRelative = formatRelativeToRefresh(
+                    Number(st?.last_batch_update_unix),
+                    Number(data?.generated_at_unix)
+                  );
+                  const batchUpdatedTitle = formatTimestampTitle(Number(st?.last_batch_update_unix));
                   const verTone = key
                     ? key === versionRanks.latest
                       ? 'ok'
@@ -414,6 +451,11 @@ export default function App() {
                               Protocol {formatVersion(st.protocol_version)}
                             </div>
                             <div className="pill">Batches C/V/E {st.total_batches_committed}/{st.total_batches_verified}/{st.total_batches_executed}</div>
+                            {batchUpdatedRelative && (
+                              <div className="pill" title={batchUpdatedTitle ?? undefined}>
+                                Last batch update {batchUpdatedRelative}
+                              </div>
+                            )}
                             <div className="pill">Queue {st.queue.unprocessed}/{st.queue.total}</div>
                             {typeof c.priority_tree_verified === 'boolean' && (
                               <div className={`pill ${c.priority_tree_verified ? 'pill--ok' : 'pill--warn'}`}>
@@ -473,6 +515,11 @@ export default function App() {
                   const st = c.state_transition;
                   const name = idToName.get(Number(c.chain_id));
                   const key = versionRanks.asKey(st?.protocol_version);
+                  const batchUpdatedRelative = formatRelativeToRefresh(
+                    Number(st?.last_batch_update_unix),
+                    Number(data?.generated_at_unix)
+                  );
+                  const batchUpdatedTitle = formatTimestampTitle(Number(st?.last_batch_update_unix));
                   const verTone = key
                     ? key === versionRanks.latest
                       ? 'ok'
@@ -498,6 +545,11 @@ export default function App() {
                               Protocol {formatVersion(st.protocol_version)}
                             </div>
                             <div className="pill">Batches C/V/E {st.total_batches_committed}/{st.total_batches_verified}/{st.total_batches_executed}</div>
+                            {batchUpdatedRelative && (
+                              <div className="pill" title={batchUpdatedTitle ?? undefined}>
+                                Last batch update {batchUpdatedRelative}
+                              </div>
+                            )}
                             <div className="pill">Queue {st.queue.unprocessed}/{st.queue.total}</div>
                             {typeof c.priority_tree_verified === 'boolean' && (
                               <div className={`pill ${c.priority_tree_verified ? 'pill--ok' : 'pill--warn'}`}>
