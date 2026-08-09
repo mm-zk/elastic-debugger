@@ -15,6 +15,47 @@ const formatVersion = (ver) => {
   return `${a}.${b}.${c}`;
 };
 
+const formatCollectedAt = (timestamp) => {
+  if (!Number.isFinite(timestamp)) return null;
+  const date = new Date(timestamp * 1000);
+  if (Number.isNaN(date.getTime())) return null;
+
+  const absolute = new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'medium',
+    timeStyle: 'medium'
+  }).format(date);
+  const utc = new Intl.DateTimeFormat('en-GB', {
+    dateStyle: 'medium',
+    timeStyle: 'medium',
+    timeZone: 'UTC'
+  }).format(date);
+
+  const diffSeconds = Math.round((Date.now() - date.getTime()) / 1000);
+  const rtf = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' });
+  const ranges = [
+    { unit: 'day', seconds: 86_400 },
+    { unit: 'hour', seconds: 3_600 },
+    { unit: 'minute', seconds: 60 }
+  ];
+  const relative =
+    diffSeconds < 60
+      ? 'just now'
+      : ranges
+          .map(({ unit, seconds }) => {
+            if (Math.abs(diffSeconds) >= seconds) {
+              return rtf.format(-Math.round(diffSeconds / seconds), unit);
+            }
+            return null;
+          })
+          .find(Boolean) ?? rtf.format(-diffSeconds, 'second');
+
+  return {
+    absolute,
+    relative,
+    utc: `${utc} UTC`
+  };
+};
+
 // Etherscan base URLs per ecosystem
 const ETHERSCAN_BASES = {
   mainnet: 'https://etherscan.io/address/',
@@ -298,6 +339,11 @@ export default function App() {
     return { toGateway, toL1 };
   }, [data, gatewayChainSet]);
 
+  const collectedAt = useMemo(
+    () => formatCollectedAt(data?.generated_at_unix),
+    [data?.generated_at_unix]
+  );
+
   return (
     <div className="app">
       <header className="app__header">
@@ -321,7 +367,16 @@ export default function App() {
             </select>
           </div>
         </div>
-        <p className="muted">Loaded from <code>{currentEndpoint}</code>. Auto-refreshes every minute.</p>
+        <div className="app__meta">
+          <p className="muted">Loaded from <code>{currentEndpoint}</code>. Auto-refreshes every minute.</p>
+          {collectedAt && (
+            <div className="snapshot-time" title={collectedAt.utc}>
+              <span className="snapshot-time__label">Data collected</span>
+              <strong>{collectedAt.absolute}</strong>
+              <span className="muted">({collectedAt.relative})</span>
+            </div>
+          )}
+        </div>
       </header>
 
       {status === 'loading' && (

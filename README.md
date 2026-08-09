@@ -142,7 +142,8 @@ npm run dev
 
 The development server will start on [http://localhost:5173](http://localhost:5173) and will
 automatically reload as you make changes. The page periodically refreshes its data so it can handle
-regenerating `output.json` without a manual reload.
+regenerating `output.json` without a manual reload. The header also shows the snapshot collection
+time from `generated_at_unix`, so it is clear when the currently displayed data was gathered.
 
 ## Automated mainnet refresh
 

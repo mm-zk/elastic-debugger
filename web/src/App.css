@@ -13,6 +13,14 @@
   gap: 0.5rem;
 }
 
+.app__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+
 /* Toolbar */
 .toolbar {
   display: flex;
@@ -50,6 +58,26 @@
 
 .muted {
   color: #6b7280;
+}
+
+.snapshot-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.55rem 0.85rem;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+.snapshot-time__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #4b5563;
 }
 
 .grid {
