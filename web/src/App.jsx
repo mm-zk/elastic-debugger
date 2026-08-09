@@ -431,13 +431,14 @@ export default function App() {
                               <KeyValue label="Base token" value={assetIdName.get(st.base_token_asset_id)} />
                             )}
                           </div>
-                          <Collapsible title="Posting accounts" count={(c.commit_posters?.length || 0) + (c.proof_posters?.length || 0)}>
+                          <Collapsible title="Posting accounts" count={(c.commit_posters?.length || 0) + (c.proof_posters?.length || 0) + (c.execute_posters?.length || 0)}>
                             {c.posting_accounts_error ? (
                               <div className="muted">{c.posting_accounts_error}</div>
                             ) : (
                               <div className="grid-2">
                                 <AddressList label="Commit posters" addresses={c.commit_posters} eco={eco} />
                                 <AddressList label="Proof posters" addresses={c.proof_posters} eco={eco} />
+                                <AddressList label="Execute posters" addresses={c.execute_posters} eco={eco} />
                               </div>
                             )}
                           </Collapsible>
@@ -515,13 +516,14 @@ export default function App() {
                               <KeyValue label="Base token" value={assetIdName.get(st.base_token_asset_id)} />
                             )}
                           </div>
-                          <Collapsible title="Posting accounts" count={(c.commit_posters?.length || 0) + (c.proof_posters?.length || 0)}>
+                          <Collapsible title="Posting accounts" count={(c.commit_posters?.length || 0) + (c.proof_posters?.length || 0) + (c.execute_posters?.length || 0)}>
                             {c.posting_accounts_error ? (
                               <div className="muted">{c.posting_accounts_error}</div>
                             ) : (
                               <div className="grid-2">
                                 <AddressList label="Commit posters" addresses={c.commit_posters} eco={eco} />
                                 <AddressList label="Proof posters" addresses={c.proof_posters} eco={eco} />
+                                <AddressList label="Execute posters" addresses={c.execute_posters} eco={eco} />
                               </div>
                             )}
                           </Collapsible>

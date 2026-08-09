@@ -170,6 +170,7 @@ struct ChainDiagnostics {
     posting_accounts_error: Option<String>,
     commit_posters: Vec<String>,
     proof_posters: Vec<String>,
+    execute_posters: Vec<String>,
     priority_tree_verified: Option<bool>,
     priority_tree_note: Option<String>,
     priority_transactions: Vec<PriorityTransactionReport>,
@@ -186,6 +187,7 @@ impl ChainDiagnostics {
             posting_accounts_error: None,
             commit_posters: Vec::new(),
             proof_posters: Vec::new(),
+            execute_posters: Vec::new(),
             priority_tree_verified: None,
             priority_tree_note: None,
             priority_transactions: Vec::new(),
@@ -456,6 +458,11 @@ async fn main() -> eyre::Result<()> {
                             .collect();
                         diagnostics.proof_posters = accounts
                             .provers
+                            .into_iter()
+                            .map(|address| format!("{:#x}", address))
+                            .collect();
+                        diagnostics.execute_posters = accounts
+                            .executors
                             .into_iter()
                             .map(|address| format!("{:#x}", address))
                             .collect();

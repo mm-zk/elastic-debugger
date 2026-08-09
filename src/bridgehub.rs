@@ -181,6 +181,7 @@ impl Display for BridgehubChainDetails {
 pub struct ValidatorTimelockPostingAccounts {
     pub committers: Vec<Address>,
     pub provers: Vec<Address>,
+    pub executors: Vec<Address>,
 }
 
 pub enum AssetRouter {
@@ -436,6 +437,7 @@ impl Bridgehub {
             contract IValidatorTimelock {
                 function COMMITTER_ROLE() external view returns (bytes32);
                 function PROVER_ROLE() external view returns (bytes32);
+                function EXECUTOR_ROLE() external view returns (bytes32);
                 function getRoleMemberCount(address _chainAddress, bytes32 _role) external view returns (uint256);
                 function getRoleMember(address _chainAddress, bytes32 _role, uint256 _index) external view returns (address);
             }
@@ -445,12 +447,14 @@ impl Bridgehub {
             return Ok(ValidatorTimelockPostingAccounts {
                 committers: Vec::new(),
                 provers: Vec::new(),
+                executors: Vec::new(),
             });
         }
 
         let contract = IValidatorTimelock::new(validator_timelock_address, &self.provider);
         let committer_role = contract.COMMITTER_ROLE().call().await?._0;
         let prover_role = contract.PROVER_ROLE().call().await?._0;
+        let executor_role = contract.EXECUTOR_ROLE().call().await?._0;
 
         let committer_count = contract
             .getRoleMemberCount(chain_address, committer_role)
@@ -460,6 +464,12 @@ impl Bridgehub {
             .try_into()?;
         let prover_count = contract
             .getRoleMemberCount(chain_address, prover_role)
+            .call()
+            .await?
+            ._0
+            .try_into()?;
+        let executor_count = contract
+            .getRoleMemberCount(chain_address, executor_role)
             .call()
             .await?
             ._0
@@ -487,9 +497,21 @@ impl Bridgehub {
             );
         }
 
+        let mut executors = Vec::new();
+        for i in 0..executor_count {
+            executors.push(
+                contract
+                    .getRoleMember(chain_address, executor_role, U256::from(i))
+                    .call()
+                    .await?
+                    ._0,
+            );
+        }
+
         Ok(ValidatorTimelockPostingAccounts {
             committers,
             provers,
+            executors,
         })
     }
 
